@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: simple-job
+spec:
+  completions: 3
+  template:
+    spec:
+      containers:
+      - name: sleepy
+        image: alpine
+        command: ["/bin/sleep"]
+        args: ["5"]
+      restartPolicy: Never
